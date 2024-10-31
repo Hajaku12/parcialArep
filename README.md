@@ -3,7 +3,7 @@
 # Avance hasta las 3:42
 
 En este avance se termino la mayoria del codigo y se pudo conectar al servidor EC2 del Proxy, los otros dos servidores EC2. 
-Se muestra por HTML el ingreso de los datos y se puede escoger entre Linear Search y Binary Search. Se uso solo un repositorio donde falta revisar la respuesta en JSON de la busqueda. Siento que es un error del archivo index.html
+Se muestra por HTML el ingreso de los datos y se puede escoger entre Linear Search y Binary Search. Se uso solo un repositorio donde falta revisar la respuesta en JSON de la busqueda porque no la esta dando al presionarlo. Siento que es un error del archivo index.html
 
 Para evidencia adjunto las imagenes:
 
