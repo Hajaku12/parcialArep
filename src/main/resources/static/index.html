@@ -21,7 +21,7 @@
     function search(type) {
         let list = document.getElementById('list').value;
         let value = document.getElementById('value').value;
-        let url = '/proxy/$(type)search?list=$(list)&value$(value)';
+        let url = `/proxy/$(type)search?list=$(list)&value=$(value)`;
         fetch(url)
             .then(response => response.json())
             .then(data => {
