@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h1>Search Algoritms</h1>
+<form>
+    <label for="list">List (comma-separated):</label>
+    <input type="text" id="list" name="list"><br><br>
+    <label for="value">Value to search:</label>
+    <input type="text" id="value" name="value"><br><br>
+    <button type="button" onClick="Search('linear')">Linear Search</button>
+    <button type="button" onClick="Search('binary')">Binary Search</button>
+</form>
+<div id="result"></div>
+
+<script>
+    function search(type) {
+        let list = document.getElementById('list').value;
+        let value = document.getElementById('value').value;
+        let url = '/proxy/$(type)search?list=$(list)&value$(value)';
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innetText = JSON.stringify(data);
+            });
+    }
+</script>
+
+</body>
+</html>
