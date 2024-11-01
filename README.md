@@ -22,7 +22,10 @@ Para evidencia adjunto las imagenes:
 # Avance después de las 3:42
 
 #### Video del Funcionamiento
-- Video de la aplicación funcionando: [video.mp4](images/video.mp4)
+<video width="600" controls>
+  <source src="images/video.mp4" type="video/mp4">
+  Tu navegador no soporta la reproducción de video.
+</video>
 
 ### Instrucciones para ejecución
 
