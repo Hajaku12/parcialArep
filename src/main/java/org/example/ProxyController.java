@@ -17,13 +17,13 @@ public class ProxyController {
 
     @GetMapping("/proxy/linearsearch")
     public ResponseEntity<String> proxyLinearSearch(@RequestParam String list, @RequestParam String value) {
-        String url = getNextServiceUrl() + "/linearsearch?list" + list + "value" + value;
+        String url = getNextServiceUrl() + "/linearsearch?list=" + list + "&value=" + value;
         return new RestTemplate().getForEntity(url, String.class);
     }
 
     @GetMapping("/proxy/binarysearch")
     public ResponseEntity<String> proxyBinarySearch(@RequestParam String list, @RequestParam String value) {
-        String url = getNextServiceUrl() + "/binarysearch?list" + list + "value"+ value;
+        String url = getNextServiceUrl() + "/binarysearch?list=" + list + "&value=" + value;
         return new RestTemplate().getForEntity(url, String.class);
     }
 

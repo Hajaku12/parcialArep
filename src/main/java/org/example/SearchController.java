@@ -30,7 +30,7 @@ public class SearchController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/binarysearh")
+    @GetMapping("/binarysearch")
     public ResponseEntity<Map<String, String>> binarySearch(
             @RequestParam String list, @RequestParam String value){
         String[] items = list.split(",");
