@@ -1,5 +1,6 @@
 package org.example;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,19 +18,29 @@ public class ProxyController {
 
     @GetMapping("/proxy/linearsearch")
     public ResponseEntity<String> proxyLinearSearch(@RequestParam String list, @RequestParam String value) {
-        String url = getNextServiceUrl() + "/linearsearch?list=" + list + "&value=" + value;
-        return new RestTemplate().getForEntity(url, String.class);
+        try {
+            String url = getNextServiceUrl() + "/linearsearch?list=" + list + "&value=" + value;
+            return new RestTemplate().getForEntity(url, String.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred: " + e.getMessage());
+        }
     }
 
     @GetMapping("/proxy/binarysearch")
     public ResponseEntity<String> proxyBinarySearch(@RequestParam String list, @RequestParam String value) {
-        String url = getNextServiceUrl() + "/binarysearch?list=" + list + "&value=" + value;
-        return new RestTemplate().getForEntity(url, String.class);
+        try {
+            String url = getNextServiceUrl() + "/binarysearch?list=" + list + "&value=" + value;
+            return new RestTemplate().getForEntity(url, String.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred: " + e.getMessage());
+        }
     }
 
     private String getNextServiceUrl() {
         String serviceUrl = services[currentServiceIndex];
-        currentServiceIndex = (currentServiceIndex +1);
+        currentServiceIndex = (currentServiceIndex + 1) % services.length;
         return serviceUrl;
     }
 }

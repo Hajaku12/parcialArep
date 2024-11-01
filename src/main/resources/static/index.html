@@ -24,8 +24,12 @@
             .then(response => response.json())
             .then(data => {
                 document.getElementById('result').innerText = JSON.stringify(data);
+            })
+            .catch(error => {
+                document.getElementById('result').innerText = 'Error occurred: ' + error;
             });
     }
 </script>
 </body>
 </html>
+
