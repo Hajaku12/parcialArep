@@ -10,8 +10,8 @@ import org.springframework.web.client.RestTemplate;
 public class ProxyController {
 
     private String[] services = {
-            "http://ec2-3-91-91-249.compute-1.amazonaws.com:8080/search",
-            "http://ec2-54-87-194-193.compute-1.amazonaws.com:8080/search"
+            "http://ec2-98-83-163-41.compute-1.amazonaws.com:8080/search",
+            "http://ec2-54-163-96-40.compute-1.amazonaws.com:8080/search"
     };
     private int currentServiceIndex = 0;
 
