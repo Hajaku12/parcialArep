@@ -1,5 +1,6 @@
 package org.example;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,10 +11,12 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class ProxyController {
 
-    private String[] services = {
-            "http://ec2-98-83-163-41.compute-1.amazonaws.com:8080/search",
-            "http://ec2-54-163-96-40.compute-1.amazonaws.com:8080/search"
-    };
+    @Value("${service1.url}")
+    private String service1Url;
+
+    @Value("${service2.url}")
+    private String service2Url;
+
     private int currentServiceIndex = 0;
 
     @GetMapping("/proxy/linearsearch")
@@ -39,6 +42,7 @@ public class ProxyController {
     }
 
     private String getNextServiceUrl() {
+        String[] services = {service1Url, service2Url};
         String serviceUrl = services[currentServiceIndex];
         currentServiceIndex = (currentServiceIndex + 1) % services.length;
         return serviceUrl;
